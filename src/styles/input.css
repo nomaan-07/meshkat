@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+
+/* <Fonts/> */
+
+@font-face {
+    font-family: "Iran Bold";
+    src: url("../assets/fonts/iran-sans/IRANSansXFaNum-BoldD4.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Iran DemiBold";
+    src: url("../assets/fonts/iran-sans/IRANSansXFaNum-DemiBoldD4.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Iran Light";
+    src: url("../assets/fonts/iran-sans/IRANSansXFaNum-LightD4.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Iran Medium";
+    src: url("../assets/fonts/iran-sans/IRANSansXFaNum-MediumD4.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Iran Regular";
+    src: url("../assets/fonts/iran-sans/IRANSansXFaNum-RegularD4.woff2") format("woff2");
+    font-display: swap;
+}
+
+@theme {
+    /* Fonts */
+    --font-iranBold: "Iran Bold";
+    --font-iranDemiBold: "Iran DemiBold";
+    --font-iranLight: "Iran Light";
+    --font-iranMedium: "Iran Medium";
+    --font-iranRegular: "Iran Regular";
+    /* Css Variables */
+    --color-primary: var(--color-blue-500);
+    --color-secondary: var(--color-blue-600);
+}
