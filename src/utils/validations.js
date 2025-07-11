@@ -63,6 +63,13 @@ export const passwordValidation = () => ({
   },
 });
 
+export const checkboxValidation = (
+  message = "لطفاً این گزینه را انتخاب کنید"
+) => ({
+  required: message,
+  validate: (value) => value === true || message,
+});
+
 export const passwordConfirmValidation = () => ({
   ...requiredValidation(),
   validate: (value, allValues) =>
