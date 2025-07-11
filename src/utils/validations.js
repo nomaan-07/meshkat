@@ -55,6 +55,30 @@ export const emailValidation = () => ({
   valueAsNumber: false,
 });
 
+export const emailOrPhoneValidation = () => ({
+  ...requiredValidation(),
+  validate: (value) => {
+    const input = value.trim();
+
+    const isEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(
+      input
+    );
+    if (isEmail) return true;
+
+    const phone = input;
+    const normalizedPhone = phone.startsWith("+98")
+      ? "0" + phone.slice(3)
+      : phone.startsWith("98")
+      ? "0" + phone.slice(2)
+      : phone;
+
+    const isPhone = /^09\d{9}$/.test(normalizedPhone);
+    if (isPhone) return true;
+
+    return "لطفا ایمیل یا شماره موبایل معتبر وارد کنید";
+  },
+});
+
 export const passwordValidation = () => ({
   ...requiredValidation(),
   minLength: {

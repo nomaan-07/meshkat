@@ -1,10 +1,7 @@
 import { useForm } from "react-hook-form";
 import Form from "../../ui/forms/Form";
 import Input from "../../ui/forms/Input";
-import {
-  emailValidation,
-  phoneNumberValidation,
-} from "../../utils/validations";
+import { emailOrPhoneValidation } from "../../utils/validations";
 import Button from "../../ui/buttons/Button";
 import { FaSignInAlt } from "react-icons/fa";
 
@@ -24,12 +21,15 @@ function LoginForm() {
       <Input
         type="phone"
         register={register}
-        id="phone"
+        name="phone"
         placeholder="ایمیل یا شماره موبایل"
-        validation={emailValidation() || phoneNumberValidation()}
+        validation={emailOrPhoneValidation()}
+        error={errors?.phone}
       />
 
-      <Button icon={FaSignInAlt}>ورود به حساب</Button>
+      <Button type="submit" icon={FaSignInAlt}>
+        ورود به حساب
+      </Button>
     </Form>
   );
 }

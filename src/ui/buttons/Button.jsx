@@ -24,7 +24,7 @@ function Button({
   children,
   icon: Icon,
   iconPosition = "left",
-  type = "button", // نوع HTML button (button, submit, reset)
+  type = "button",
 }) {
   return (
     <button

@@ -41,6 +41,7 @@
     --font-iranMedium: "Iran Medium";
     --font-iranRegular: "Iran Regular";
     /* Css Variables */
-    --color-primary: var(--color-blue-500);
-    --color-secondary: var(--color-blue-600);
+    --color-primary: #2a81a5;
+    --color-secondary: #3da5c1;
+    --color-accent: #a55a2a;
 }
