@@ -3,6 +3,7 @@ import Form from "../../ui/forms/Form";
 import {
   checkboxValidation,
   emailValidation,
+  nameValidation,
   passwordValidation,
   phoneNumberValidation,
   requiredValidation,
@@ -15,7 +16,7 @@ import Label from "../../ui/forms/Label";
 import Flex from "../../ui/layout/Flex";
 import { useForm } from "react-hook-form";
 import { useSignup } from "./useSignup";
-import { useEffect } from "react";
+import { convertToInternationalPhone } from "../../utils/helpers";
 
 function SignupForm() {
   const { signup, isPending } = useSignup();
@@ -28,14 +29,23 @@ function SignupForm() {
     mode: "onTouched",
   });
 
-  const onSubmit = (data) => {};
+  function onSubmit(data) {
+    const userData = {
+      fname: data.firstName,
+      lname: data.lastName,
+      username: data.userName,
+      password: data.password,
+      phone: convertToInternationalPhone(data.phone),
+      email: data.email,
+    };
 
-  useEffect(() => {
-    console.log("Errors:", errors);
-  }, [errors]);
+    console.log(userData.phone);
+
+    signup(userData);
+  }
 
   return (
-    <Form type="regular" onSubmit={handleSubmit(onSubmit)}>
+    <Form variation="regular" onSubmit={handleSubmit(onSubmit)}>
       <InputContainer>
         <Input
           type="text"
@@ -54,6 +64,7 @@ function SignupForm() {
           error={errors?.lastName}
         />
       </InputContainer>
+
       <Input
         type="email"
         register={register}
@@ -62,6 +73,7 @@ function SignupForm() {
         validation={emailValidation()}
         error={errors?.email}
       />
+
       <Input
         type="phone"
         register={register}
@@ -70,6 +82,16 @@ function SignupForm() {
         validation={phoneNumberValidation()}
         error={errors?.phone}
       />
+
+      <Input
+        type="text"
+        register={register}
+        name="userName"
+        placeholder="نام کاربری"
+        validation={nameValidation()}
+        error={errors?.userName}
+      />
+
       <Input
         type="password"
         register={register}
@@ -92,9 +114,10 @@ function SignupForm() {
           error={errors?.terms}
           className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded ml-2 cursor-pointer"
         />
+
         <Label htmlFor="terms" className="text-sm">
           با
-          <Link className="underline"> قوانین و مقررات </Link>
+          <Link className="text-purple-500 underline"> قوانین و مقررات </Link>
           سایت موافقم
         </Label>
       </Flex>

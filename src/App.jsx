@@ -7,6 +7,8 @@ import ErrorPage from "./pages/ErrorPage";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import PageNotFound from "./pages/PageNotFound";
+import { Toaster } from "react-hot-toast";
+import VerificationCodeForm from "./pages/VerificationCodeForm";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,6 +32,10 @@ const router = createHashRouter([
     path: "login",
     element: <Login />,
   },
+  {
+    path: "verification",
+    element: <VerificationCodeForm />,
+  },
   { path: "*", element: <PageNotFound /> },
 ]);
 
@@ -37,6 +43,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
+      <Toaster />
     </QueryClientProvider>
   );
 }

@@ -10,12 +10,12 @@ const formTypes = {
 function Form({
   children,
   onSubmit,
-  type = "modal",
+  variation = "modal",
   className = "",
   ...props
 }) {
   const formClassName = `${baseStyles} ${
-    formTypes[type] || formTypes.modal
+    formTypes[variation] || formTypes.modal
   } ${className}`;
 
   return (

@@ -12,6 +12,10 @@ function AppLayout() {
       <NavLink className="" to="/login">
         <Button>ورود</Button>
       </NavLink>
+
+      <NavLink className="" to="/verification">
+        <Button>وریفای کد</Button>
+      </NavLink>
     </Flex>
   );
 }

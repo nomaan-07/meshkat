@@ -1,7 +1,13 @@
-export function testValidation(value) {
-  const isEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value);
+export function convertToInternationalPhone(phone) {
+  const digitsOnly = phone.replace(/\D/g, "");
 
-  const isPhone = /^[0-9]{10,11}$/.test(value);
+  if (digitsOnly.startsWith("0")) {
+    return "98" + digitsOnly.slice(1);
+  }
 
-  return { isEmail, isPhone };
+  if (digitsOnly.startsWith("9")) {
+    return "98" + digitsOnly;
+  }
+
+  return digitsOnly;
 }

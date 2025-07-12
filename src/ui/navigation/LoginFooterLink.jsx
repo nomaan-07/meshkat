@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 function LoginFooterLink({ to, children }) {
   return (
     <div className="text-center mt-4 text-xs sm:text-sm">
-      <p className="text-red-500 text-opacity-80">
+      <p className="text-slate-700">
         {children}
         <NavLink
           to={to}

@@ -8,7 +8,10 @@ function LogoTitle({ children }) {
       <Flex>
         <Logo />
       </Flex>
-      <Heading as="h3" className="mt-6 text-center font-iranBold text-gray-900">
+      <Heading
+        as="h3"
+        className="mt-6 text-center font-iranLight text-gray-900"
+      >
         {children}
       </Heading>
     </div>

@@ -4,8 +4,11 @@ import Input from "../../ui/forms/Input";
 import { emailOrPhoneValidation } from "../../utils/validations";
 import Button from "../../ui/buttons/Button";
 import { FaSignInAlt } from "react-icons/fa";
+import { useLogin } from "./useLogin";
 
 function LoginForm() {
+  const { login, isPending } = useLogin();
+
   const {
     register,
     handleSubmit,
@@ -17,7 +20,7 @@ function LoginForm() {
   };
 
   return (
-    <Form type="regular" onSubmit={handleSubmit(onSubmit)}>
+    <Form variation="regular" onSubmit={handleSubmit(onSubmit)}>
       <Input
         type="phone"
         register={register}
@@ -27,8 +30,8 @@ function LoginForm() {
         error={errors?.phone}
       />
 
-      <Button type="submit" icon={FaSignInAlt}>
-        ورود به حساب
+      <Button type="submit" disabled={isPending} icon={FaSignInAlt}>
+        {isPending ? "در حال ورود ..." : "ورود به حساب"}
       </Button>
     </Form>
   );

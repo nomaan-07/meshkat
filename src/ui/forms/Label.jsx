@@ -1,5 +1,5 @@
 const BaseLabelStyles =
-  "text-indigo-600 hover:text-indigo-500 ml-3 text-sm text-right cursor-pointer";
+  "hover:text-slate-600 ml-3 text-sm text-right cursor-pointer";
 
 function Label({ htmlFor, children, className = "" }) {
   return (

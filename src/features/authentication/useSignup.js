@@ -1,18 +1,22 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { signup as signupApi } from "../../services/apiAuth";
 
 export function useSignup() {
-  const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   const { mutate: signup, isPending } = useMutation({
-    // mutationFn: signupApi,
-    onSuccess: (data) => {
-      console.log(data);
+    mutationFn: signupApi,
+    onSuccess: () => {
+      toast.success("ثبت نام با موفقیت انجام شد!");
+      navigate("/verification");
     },
-    onError: (err) => {
-      console.log(err);
+    onError: (error) => {
+      toast.error(error?.message || "خطایی در ثبت نام رخ داده است!");
+      console.error(error);
     },
   });
+
   return { signup, isPending };
 }

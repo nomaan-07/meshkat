@@ -1,5 +1,5 @@
 const baseStyles =
-  "flex justify-center items-center rounded-md shadow-sm w-full font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer ";
+  "flex justify-center items-center rounded-md shadow-sm w-full font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ";
 
 const buttonTypes = {
   primary: "bg-primary hover:bg-secondary text-white",
@@ -26,18 +26,18 @@ function Button({
   iconPosition = "left",
   type = "button",
 }) {
+  const styles = ` ${baseStyles}
+        ${buttonTypes[variant]}
+        ${buttonSizes[size]}
+        ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
+        ${className}`;
+
   return (
     <button
       onClick={onClick}
       disabled={disabled}
       type={type}
-      className={`
-        ${baseStyles}
-        ${buttonTypes[variant]}
-        ${buttonSizes[size]}
-        ${disabled ? "opacity-50 cursor-not-allowed" : ""}
-        ${className}
-      `}
+      className={styles}
     >
       {iconPosition === "left" && Icon && (
         <Icon className={`${children ? "ml-2" : ""}`} />
