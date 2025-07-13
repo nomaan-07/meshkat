@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://peaceful-kirch-o4ef0kgcy.liara.run/api";
+const baseURL = "https://meshkatdev.liara.run/api";
 
 export async function signup(userData) {
   try {

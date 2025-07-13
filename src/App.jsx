@@ -9,6 +9,7 @@ import SignUp from "./pages/SignUp";
 import PageNotFound from "./pages/PageNotFound";
 import { Toaster } from "react-hot-toast";
 import VerificationCodeForm from "./pages/VerificationCodeForm";
+import Spinner from "./ui/common/Spinner";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,6 +36,10 @@ const router = createHashRouter([
   {
     path: "verification",
     element: <VerificationCodeForm />,
+  },
+  {
+    path: "spinner",
+    element: <Spinner />,
   },
   { path: "*", element: <PageNotFound /> },
 ]);

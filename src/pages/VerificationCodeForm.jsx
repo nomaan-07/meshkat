@@ -6,9 +6,10 @@ import Flex from "../ui/layout/Flex";
 import Heading from "../ui/layout/Heading";
 import Paragraph from "../ui/common/Paragraph";
 import Button from "../ui/buttons/Button";
-import { FiCheck, FiRotateCw } from "react-icons/fi";
+import { FiCheck } from "react-icons/fi";
 import Input from "../ui/forms/Input";
 import ResendCodeButton from "../ui/buttons/ResendCodeButton ";
+import toast from "react-hot-toast";
 
 const VerificationCodeForm = () => {
   const [code, setCode] = useState(Array(6).fill(""));
@@ -44,9 +45,9 @@ const VerificationCodeForm = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     const fullCode = code.join("");
-    alert(`کد تأیید ارسال شد: ${fullCode}`);
+    e.preventDefault();
+    toast.success(`کد تأیید ارسال شد: ${fullCode}`);
   };
 
   return (
