@@ -9,6 +9,7 @@ export async function signup(userData) {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
+      withCredentials: true,
     });
     return response.data;
   } catch (error) {
