@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { FiRotateCw } from "react-icons/fi";
 import Button from "./Button";
+import { useResendOtp } from "../../features/authentication/useResendOtp";
+import toast from "react-hot-toast";
 
 const ResendCodeButton = () => {
+  const { resendOtp } = useResendOtp();
   const [countdown, setCountdown] = useState(120);
   const [isResendDisabled, setIsResendDisabled] = useState(true);
 
@@ -20,18 +23,18 @@ const ResendCodeButton = () => {
     return () => clearTimeout(timer);
   }, [countdown]);
 
-  const handleResendCode = () => {
-    setCountdown(120);
-    setIsResendDisabled(true);
-
-    alert("کد جدید ارسال شد!");
-  };
-
-  const formatTime = (seconds) => {
+  function formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
-  };
+  }
+
+  function handleResendCode() {
+    resendOtp();
+    setCountdown(120);
+    setIsResendDisabled(true);
+    toast.success("کد با موفقیت ارسال شد");
+  }
 
   return (
     <Button

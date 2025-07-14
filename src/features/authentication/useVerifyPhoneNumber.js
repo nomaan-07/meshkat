@@ -8,15 +8,11 @@ export function useVerifyPhoneNumber() {
 
   const { mutate: verifyNumber, isPending } = useMutation({
     mutationFn: verifyPhoneNumberApi,
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success("ورود با موفقیت انجام شد");
       navigate("/");
-      console.log(data);
     },
-    onError: (error) => {
-      toast.error("خطایی در ورود رخ داده است");
-      console.log(error);
-    },
+    onError: () => toast.error("خطایی در ورود رخ داده است"),
   });
 
   return { verifyNumber, isPending };

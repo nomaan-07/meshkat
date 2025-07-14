@@ -15,9 +15,10 @@ function LoginForm() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  function onSubmit(data) {
+    const userData = { identifier: data.phone, password: data.password };
     console.log("Form submitted:", data);
-  };
+  }
 
   return (
     <Form variation="regular" onSubmit={handleSubmit(onSubmit)}>

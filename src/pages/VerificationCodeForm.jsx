@@ -48,7 +48,7 @@ const VerificationCodeForm = () => {
     }
   };
 
-  function onSubmit(otp) {
+  function onSubmit() {
     const fullCode = code.join("");
     if (fullCode.length === 6) {
       verifyNumber(fullCode);
