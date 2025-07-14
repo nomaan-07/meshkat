@@ -1,13 +1,15 @@
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import Button from "../buttons/Button";
+import { useGithubLogin } from "../../features/authentication/useGithubLogin";
 
 function LoginFooterSection() {
+  const { gitHubLogin, isPending } = useGithubLogin();
   const handleGoogleLogin = () => {
     console.log("Google login clicked");
   };
 
   const handleGithubLogin = () => {
-    console.log("GitHub login clicked");
+    gitHubLogin();
   };
 
   return (
@@ -29,7 +31,9 @@ function LoginFooterSection() {
 
         <Button variant="outline" onClick={handleGithubLogin}>
           <FaGithub className="h-5 w-5 text-gray-800" />
-          <span className="mr-2">گیت‌هاب</span>
+          <span className="mr-2">
+            {isPending ? "در حال انتقال ..." : "گیت هاب"}
+          </span>
         </Button>
       </div>
     </div>

@@ -5,7 +5,11 @@ import toast from "react-hot-toast";
 export function useResendOtp() {
   const { mutate: resendOtp } = useMutation({
     mutationFn: resendOtpApi,
-    onError: () => toast.error("خطایی در ارسال کد رخ داده است"),
+    onSuccess: () => toast.success("کد با موفقیت ارسال شد"),
+    onError: (error) => {
+      toast.error("خطایی در ارسال کد رخ داده است");
+      console.log(error);
+    },
   });
   return { resendOtp };
 }

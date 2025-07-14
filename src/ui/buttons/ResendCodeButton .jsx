@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { FiRotateCw } from "react-icons/fi";
 import Button from "./Button";
 import { useResendOtp } from "../../features/authentication/useResendOtp";
-import toast from "react-hot-toast";
 
 const ResendCodeButton = () => {
   const { resendOtp } = useResendOtp();
@@ -33,7 +32,6 @@ const ResendCodeButton = () => {
     resendOtp();
     setCountdown(120);
     setIsResendDisabled(true);
-    toast.success("کد با موفقیت ارسال شد");
   }
 
   return (

@@ -66,3 +66,14 @@ export async function login(userData) {
     );
   }
 }
+
+export async function getGithubLogin() {
+  try {
+    const response = await axios.get(`${baseURL}/auth/github/login`);
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || error?.message || "خطا در ارتباط با سرور"
+    );
+  }
+}

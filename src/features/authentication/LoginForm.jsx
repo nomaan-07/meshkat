@@ -5,6 +5,7 @@ import { emailOrPhoneValidation } from "../../utils/validations";
 import Button from "../../ui/buttons/Button";
 import { FaSignInAlt } from "react-icons/fa";
 import { useLogin } from "./useLogin";
+import { convertToInternationalPhone } from "../../utils/helpers";
 
 function LoginForm() {
   const { login, isPending } = useLogin();
@@ -16,7 +17,8 @@ function LoginForm() {
   } = useForm();
 
   function onSubmit(data) {
-    const userData = { identifier: data.phone, password: data.password };
+    const userData = { identifier: convertToInternationalPhone(data.phone) };
+    login(userData);
     console.log("Form submitted:", data);
   }
 
