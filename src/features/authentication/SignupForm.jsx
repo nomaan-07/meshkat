@@ -39,10 +39,6 @@ function SignupForm() {
       email: data.email,
     };
 
-    console.log(userData);
-
-    console.log(userData.phone);
-
     signup(userData);
   }
 

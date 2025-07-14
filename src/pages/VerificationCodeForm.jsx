@@ -9,9 +9,13 @@ import Button from "../ui/buttons/Button";
 import { FiCheck } from "react-icons/fi";
 import Input from "../ui/forms/Input";
 import ResendCodeButton from "../ui/buttons/ResendCodeButton ";
+import { useVerifyPhoneNumber } from "../features/authentication/useVerifyPhoneNumber";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 const VerificationCodeForm = () => {
+  const { verifyNumber, isPending } = useVerifyPhoneNumber();
+  const { handleSubmit } = useForm();
   const [code, setCode] = useState(Array(6).fill(""));
   const [isValid, setIsValid] = useState(false);
   const inputRefs = useRef([]);
@@ -44,11 +48,14 @@ const VerificationCodeForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  function onSubmit() {
     const fullCode = code.join("");
-    e.preventDefault();
-    toast.success(`کد تأیید ارسال شد: ${fullCode}`);
-  };
+    if (fullCode.length === 6) {
+      verifyNumber(fullCode);
+    } else {
+      toast.error("لطفاً کد ۶ رقمی را کامل وارد کنید");
+    }
+  }
 
   return (
     <Flex
@@ -56,7 +63,7 @@ const VerificationCodeForm = () => {
       className="min-h-screen bg-gray-50 py-12 sm:px-6 lg:px-8"
     >
       <FormWrapper>
-        <Form onSubmit={handleSubmit} variation="regular">
+        <Form onSubmit={handleSubmit(onSubmit)} variation="regular">
           <Heading
             className="mt-6 text-center font-iranLight text-gray-900"
             as="h3"
@@ -89,8 +96,8 @@ const VerificationCodeForm = () => {
             ))}
           </Flex>
 
-          <Button type="submit" icon={FiCheck} disabled={!isValid}>
-            تایید و ادامه
+          <Button type="submit" icon={FiCheck} disabled={!isValid || isPending}>
+            {isPending ? "در حال ورود..." : "تایید و ادامه"}
           </Button>
 
           <ResendCodeButton />
