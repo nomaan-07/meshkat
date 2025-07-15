@@ -17,6 +17,7 @@ import Flex from "../../ui/layout/Flex";
 import { useForm } from "react-hook-form";
 import { useSignup } from "./useSignup";
 import { convertToInternationalPhone } from "../../utils/helpers";
+import { setCookie } from "../../utils/cookies";
 
 function SignupForm() {
   const { signup, isPending } = useSignup();
@@ -38,7 +39,7 @@ function SignupForm() {
       phone: convertToInternationalPhone(data.phone),
       email: data.email,
     };
-
+    setCookie("user_phone", convertToInternationalPhone(data.phone));
     signup(userData);
   }
 
@@ -73,7 +74,7 @@ function SignupForm() {
       />
 
       <Input
-        type="phone"
+        type="text"
         register={register}
         name="phone"
         placeholder="شماره تلفن"

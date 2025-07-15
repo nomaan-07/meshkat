@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { getGithubLogin as gitHubLoginApi } from "../../services/apiAuth";
+import { githubLogin as gitHubLoginApi } from "../../services/apiAuth";
 import toast from "react-hot-toast";
 
 export function useGithubLogin() {

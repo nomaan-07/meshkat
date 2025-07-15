@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { signup as signupApi } from "../../services/apiAuth";
-import { getCookie, setCookie } from "../../utils/cookies";
+import { setCookie } from "../../utils/cookies";
 
 export function useSignup() {
   const navigate = useNavigate();
@@ -17,8 +17,11 @@ export function useSignup() {
     onError: (error) => {
       if (error.message.includes("400")) {
         toast.error("شما قبلا با این شماره ثبت نام کرده اید");
+      } else if (error.message.includes("404")) {
+        toast.error("شماره شما در بله ثبت نام نشده است");
       } else {
         toast.error(error?.message || "خطایی در ثبت نام رخ داده است!");
+        console.log(error);
       }
     },
   });

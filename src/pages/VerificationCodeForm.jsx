@@ -9,16 +9,21 @@ import Button from "../ui/buttons/Button";
 import { FiCheck } from "react-icons/fi";
 import Input from "../ui/forms/Input";
 import ResendCodeButton from "../ui/buttons/ResendCodeButton ";
-import { useVerifyPhoneNumber } from "../features/authentication/useVerifyPhoneNumber";
+import { useVerifyNumber } from "../features/authentication/useVerifyNumber";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { getCookie } from "../utils/cookies";
+import Link from "../ui/common/Link";
+import EditPhoneNumber from "../ui/forms/EditPhoneNumber";
 
 const VerificationCodeForm = () => {
-  const { verifyNumber, isPending } = useVerifyPhoneNumber();
+  const { verifyNumber, isPending } = useVerifyNumber();
   const { handleSubmit } = useForm();
   const [code, setCode] = useState(Array(6).fill(""));
   const [isValid, setIsValid] = useState(false);
   const inputRefs = useRef([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const userPhoneNumber = getCookie("user_phone" || "new_phone");
 
   useEffect(() => {
     setIsValid(code.every((num) => num !== "") && code.length === 6);
@@ -57,6 +62,14 @@ const VerificationCodeForm = () => {
     }
   }
 
+  function handleOpenModal() {
+    setIsModalOpen(true);
+  }
+
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
   return (
     <Flex
       direction="col"
@@ -77,7 +90,7 @@ const VerificationCodeForm = () => {
             align="center"
             margin="mb-6"
           >
-            {`کد ۶ رقمی ارسال شده به شماره 09154188878 را وارد کنید.`}
+            {`کد ۶ رقمی ارسال شده به شماره ${userPhoneNumber}+ را وارد کنید.`}
           </Paragraph>
 
           <Flex dir="ltr" gap={2} className="mb-6 ">
@@ -101,7 +114,10 @@ const VerificationCodeForm = () => {
           </Button>
 
           <ResendCodeButton />
+
+          <Link onClick={handleOpenModal}>تغییر شماره</Link>
         </Form>
+        <EditPhoneNumber isOpen={isModalOpen} onClose={handleCloseModal} />
       </FormWrapper>
     </Flex>
   );

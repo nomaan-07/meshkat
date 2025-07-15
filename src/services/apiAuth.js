@@ -18,7 +18,7 @@ export async function signup(userData) {
   }
 }
 
-export async function verifyPhoneNumber(otp) {
+export async function verifyNumber(otp) {
   try {
     const token = getCookie("register_token");
     const response = await axios.post(
@@ -67,9 +67,26 @@ export async function login(userData) {
   }
 }
 
-export async function getGithubLogin() {
+export async function githubLogin() {
   try {
     const response = await axios.get(`${baseURL}/auth/github/login`);
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || error?.message || "خطا در ارتباط با سرور"
+    );
+  }
+}
+
+export async function editphone(userData) {
+  try {
+    const token = getCookie("register_token");
+    const response = await axios.post(`${baseURL}/auth/edit_phone`, userData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
     return response.data;
   } catch (error) {
     throw new Error(

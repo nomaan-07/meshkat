@@ -25,7 +25,7 @@ function LoginForm() {
   return (
     <Form variation="regular" onSubmit={handleSubmit(onSubmit)}>
       <Input
-        type="phone"
+        type="text"
         register={register}
         name="phone"
         placeholder="ایمیل یا شماره موبایل"
