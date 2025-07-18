@@ -1,20 +1,19 @@
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import Form from "../ui/forms/Form";
-import FormWrapper from "../ui/forms/FormWrapper";
-import Flex from "../ui/layout/Flex";
-import Heading from "../ui/layout/Heading";
-import Paragraph from "../ui/common/Paragraph";
-import Button from "../ui/buttons/Button";
-import { FiCheck } from "react-icons/fi";
-import Input from "../ui/forms/Input";
-import ResendCodeButton from "../ui/buttons/ResendCodeButton ";
-import { useVerifyNumber } from "../features/authentication/useVerifyNumber";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { getCookie } from "../utils/cookies";
-import Link from "../ui/common/Link";
+import { FiCheck } from "react-icons/fi";
+import { useVerifyNumber } from "../features/authentication/useVerifyNumber";
+import Button from "../ui/buttons/Button";
+import ResendCodeButton from "../ui/buttons/ResendCodeButton ";
+import Paragraph from "../ui/common/Paragraph";
 import EditPhoneNumber from "../ui/forms/EditPhoneNumber";
+import Form from "../ui/forms/Form";
+import FormWrapper from "../ui/forms/FormWrapper";
+import Input from "../ui/forms/Input";
+import Flex from "../ui/layout/Flex";
+import Heading from "../ui/layout/Heading";
+import { getCookie } from "../utils/cookies";
 
 const VerificationCodeForm = () => {
   const { verifyNumber, isPending } = useVerifyNumber();
@@ -77,10 +76,7 @@ const VerificationCodeForm = () => {
     >
       <FormWrapper>
         <Form onSubmit={handleSubmit(onSubmit)} variation="regular">
-          <Heading
-            className="mt-6 text-center font-iranLight text-gray-900"
-            as="h3"
-          >
+          <Heading className="mt-6 text-center" as="h3">
             تایید شماره موبایل
           </Heading>
 
@@ -115,7 +111,12 @@ const VerificationCodeForm = () => {
 
           <ResendCodeButton />
 
-          <Link onClick={handleOpenModal}>تغییر شماره</Link>
+          <div
+            className="font-iranMedium text-primary hover:text-opacity-100 cursor-pointer underline text-center"
+            onClick={handleOpenModal}
+          >
+            تغییر شماره
+          </div>
         </Form>
         <EditPhoneNumber isOpen={isModalOpen} onClose={handleCloseModal} />
       </FormWrapper>

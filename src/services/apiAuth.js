@@ -78,7 +78,7 @@ export async function githubLogin() {
   }
 }
 
-export async function editphone(userData) {
+export async function editPhone(userData) {
   try {
     const token = getCookie("register_token");
     const response = await axios.post(`${baseURL}/auth/edit_phone`, userData, {

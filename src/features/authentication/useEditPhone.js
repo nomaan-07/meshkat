@@ -1,10 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
-import { editphone as editphoneApi } from "../../services/apiAuth";
+import { editPhone as editPhoneApi } from "../../services/apiAuth";
 import toast from "react-hot-toast";
 
 export function useEditPhone() {
   const { mutate: editPhone, isPending } = useMutation({
-    mutationFn: editphoneApi,
+    mutationFn: editPhoneApi,
     onSuccess: () => {
       toast.success("شماره جدید با موفقیت تنظیم شد");
     },

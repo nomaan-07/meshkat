@@ -8,7 +8,7 @@ const SignUp = () => {
   return (
     <Flex
       direction="col"
-      className="min-h-screen bg-gray-50 py-12 sm:px-6 lg:px-8"
+      className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
     >
       <LogoTitle>ثبت نام در سامانه</LogoTitle>
       <FormWrapper>

@@ -1,15 +1,18 @@
-import { RouterProvider } from "react-router";
-import { createHashRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Navigate, RouterProvider } from "react-router";
+import { createHashRouter } from "react-router-dom";
 
-import AppLayout from "./ui/layout/AppLayout";
+import { Toaster } from "react-hot-toast";
+import Account from "./pages/Account.jsx";
+import Dashboard from "./pages/Dashboard";
 import ErrorPage from "./pages/ErrorPage";
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
 import PageNotFound from "./pages/PageNotFound";
-import { Toaster } from "react-hot-toast";
+import SignUp from "./pages/SignUp";
+import Users from "./pages/User";
 import VerificationCodeForm from "./pages/VerificationCodeForm";
 import Spinner from "./ui/common/Spinner";
+import AppLayout from "./ui/layout/AppLayout";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,6 +27,24 @@ const router = createHashRouter([
     path: "/",
     element: <AppLayout />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="dashboard" replace />,
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "users",
+        element: <Users />,
+      },
+      {
+        path: "account",
+        element: <Account />,
+      },
+    ],
   },
   {
     path: "signup",

@@ -1,11 +1,12 @@
-import { useNavigate } from "react-router-dom";
-import { FaHome, FaArrowLeft, FaFrown } from "react-icons/fa";
+import { LucideArrowRight, LucideHome } from "lucide-react";
+import { FaFrown } from "react-icons/fa";
 import { GiPathDistance } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
 import Button from "../ui/buttons/Button";
-import Heading from "../ui/layout/Heading";
-import Flex from "../ui/layout/Flex";
 import Form from "../ui/forms/Form";
 import FormWrapper from "../ui/forms/FormWrapper";
+import Flex from "../ui/layout/Flex";
+import Heading from "../ui/layout/Heading";
 
 const PageNotFound = () => {
   const navigate = useNavigate();
@@ -32,15 +33,17 @@ const PageNotFound = () => {
           </Heading>
         </Flex>
 
-        <Flex direction="col" gap={5} className="sm:flex-row">
-          <Button onClick={() => navigate("/")}>
-            <FaHome />
-            صفحه اصلی
+        <Flex direction="col" className="sm:flex-row gap-4">
+          <Button
+            onClick={() => navigate(-1)}
+            variant="danger"
+            icon={LucideArrowRight}
+          >
+            بازگشت
           </Button>
 
-          <Button onClick={() => navigate(-1)} variant="danger">
-            بازگشت به صفحه قبل
-            <FaArrowLeft />
+          <Button onClick={() => navigate("/")} icon={LucideHome}>
+            صفحه اصلی
           </Button>
         </Flex>
       </FormWrapper>
