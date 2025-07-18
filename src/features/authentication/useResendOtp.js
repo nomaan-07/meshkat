@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
-import { resendOtp as resendOtpApi } from "../../services/apiAuth";
 import toast from "react-hot-toast";
+import { resendOtp as resendOtpApi } from "../../services/apiAuth";
 
 export function useResendOtp() {
   const { mutate: resendOtp } = useMutation({

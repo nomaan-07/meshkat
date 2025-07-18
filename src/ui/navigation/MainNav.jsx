@@ -9,7 +9,7 @@ function MainNav() {
           name={item.name}
           icon={item.icon}
           path={item.path}
-          key={item.name}
+          key={item.id}
         />
       ))}
     </div>

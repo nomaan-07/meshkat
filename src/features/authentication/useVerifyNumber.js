@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { verifyNumber as verifyNumberApi } from "../../services/apiAuth";
-import toast from "react-hot-toast";
 
 export function useVerifyNumber() {
   const navigate = useNavigate();

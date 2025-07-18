@@ -1,5 +1,5 @@
 const baseStyles =
-  "w-full flex items-center justify-center gap-3 rounded-full px-4 py-2.5 font-medium capitalize transition-colors select-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary";
+  "w-full flex items-center justify-center gap-3 rounded-md px-4 py-2.5 font-medium capitalize transition-colors select-none focus:outline-none focus:ring-1 focus:ring-primary";
 
 const buttonTypes = {
   primary: "bg-primary hover:bg-secondary text-white",

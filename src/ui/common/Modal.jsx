@@ -1,10 +1,10 @@
-import { createPortal } from "react-dom";
-import Overlay from "./Overlay";
-import ModalCloseButton from "../buttons/ModalCloseButton";
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
+import ModalCloseButton from "../buttons/ModalCloseButton";
+import Overlay from "./Overlay";
 
 function Modal({ children, isOpen = false, onClose, closeButton = true }) {
-  // Delet scroll of body when the modal opens
+  // Delete scroll of body when the modal opens
   useEffect(() => {
     if (isOpen) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "auto";
@@ -24,7 +24,7 @@ function Modal({ children, isOpen = false, onClose, closeButton = true }) {
         <Overlay isOpen={isOpen} onClose={onClose} />
       </div>
     </>,
-    document.body
+    document.body,
   );
 }
 

@@ -2,17 +2,16 @@ import { LucideUserCog } from "lucide-react";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import Heading from "../layout/Heading";
+import HeaderTitle from "./HeaderTitle";
 
 function Header() {
   return (
-    <header className="fixed top-0 right-0 left-0 z-60 flex h-20 items-center justify-between bg-white px-4 sm:px-8 lg:top-4 lg:left-4 lg:rounded-4xl lg:right-78 lg:px-12 lg:py-4 lg:border lg:border-primary/30">
+    <header className="fixed top-0 right-0 left-0 z-60 flex h-20 items-center justify-between bg-white px-4 sm:px-8 lg:top-4 lg:right-78 lg:left-4 lg:rounded-md lg:px-12 lg:py-4">
       <Logo className="lg:hidden" />
-      <Heading as="h3" className="hidden lg:block">
-        پنل مدیریت
-      </Heading>
+      <HeaderTitle />
       <Link
         to="/account"
-        className="rounded-full flex items-center justify-center size-14 text-slate-600 bg-slate-100 md:hover:text-white md:hover:bg-primary transition-colors"
+        className="md:hover:text-primary focus:ring-primary flex size-14 items-center justify-center rounded-md border border-slate-200 bg-slate-100 text-slate-600 transition-colors focus:ring-1 focus:outline-none md:hover:bg-slate-200"
       >
         <LucideUserCog className="size-8" strokeWidth={1.5} />
       </Link>

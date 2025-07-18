@@ -59,7 +59,7 @@
 
 @utility nav-link {
   &.active {
-    @apply bg-linear-to-r text-white md:hover:text-white from-primary to-slate-700;
+    @apply bg-linear-to-r text-white md:hover:text-white from-primary to-slate-700 cursor-default;
   }
 }
 

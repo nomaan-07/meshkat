@@ -14,26 +14,26 @@ const PageNotFound = () => {
   return (
     <Form
       variation="regular"
-      className="min-h-screen bg-gradient-to-br text-center from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center p-5"
+      className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-5 text-center"
     >
       <FormWrapper>
-        <div className="relative inline-block mb-10">
-          <span className="text-9xl font-black text-blue-100 block tracking-wider">
+        <div className="relative mb-10 inline-block">
+          <span className="block text-9xl font-black tracking-wider text-blue-100">
             4 4
           </span>
           <Flex className="absolute inset-0">
-            <FaFrown className="text-7xl text-blue-200 animate-bounce" />
+            <FaFrown className="animate-bounce text-7xl text-blue-200" />
           </Flex>
         </div>
 
         <Flex wrap="wrap" className="mb-8">
-          <GiPathDistance className="text-4xl text-red-600 ml-3" />
-          <Heading as="h4" className="text-gray-700 font-iranDemiBold">
+          <GiPathDistance className="ml-3 text-4xl text-red-600" />
+          <Heading as="h4" className="font-iranDemiBold text-gray-700">
             صفحه مورد نظر یافت نشد!
           </Heading>
         </Flex>
 
-        <Flex direction="col" className="sm:flex-row gap-4">
+        <Flex direction="col" className="gap-4 sm:flex-row">
           <Button
             onClick={() => navigate(-1)}
             variant="danger"

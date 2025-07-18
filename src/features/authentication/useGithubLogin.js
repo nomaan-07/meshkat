@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
-import { githubLogin as gitHubLoginApi } from "../../services/apiAuth";
 import toast from "react-hot-toast";
+import { githubLogin as gitHubLoginApi } from "../../services/apiAuth";
 
 export function useGithubLogin() {
   const { mutate: gitHubLogin, isPending } = useMutation({

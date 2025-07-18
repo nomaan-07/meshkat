@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
-import { editPhone as editPhoneApi } from "../../services/apiAuth";
 import toast from "react-hot-toast";
+import { editPhone as editPhoneApi } from "../../services/apiAuth";
 
 export function useEditPhone() {
   const { mutate: editPhone, isPending } = useMutation({

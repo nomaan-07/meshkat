@@ -18,7 +18,7 @@ function UserProfile() {
           <LucideUser className="size-7 text-slate-500" strokeWidth={1.5} />
         )}
       </div>
-      <p className="text-slate-400 text-sm">{username}</p>
+      <p className="text-sm text-slate-400">{username}</p>
     </div>
   );
 }

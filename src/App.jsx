@@ -9,7 +9,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import SignUp from "./pages/SignUp";
-import Users from "./pages/User";
+import Users from "./pages/Users";
 import VerificationCodeForm from "./pages/VerificationCodeForm";
 import Spinner from "./ui/common/Spinner";
 import AppLayout from "./ui/layout/AppLayout";

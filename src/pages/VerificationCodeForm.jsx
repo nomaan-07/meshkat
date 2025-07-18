@@ -89,18 +89,17 @@ const VerificationCodeForm = () => {
             {`کد ۶ رقمی ارسال شده به شماره ${userPhoneNumber}+ را وارد کنید.`}
           </Paragraph>
 
-          <Flex dir="ltr" gap={2} className="mb-6 ">
+          <Flex dir="ltr" gap={2} className="mb-6">
             {code.map((digit, index) => (
               <Input
                 key={index}
-                type="text"
+                type="code"
                 inputMode="numeric"
                 maxLength={1}
                 value={digit}
                 onChange={(e) => handleChange(e, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 ref={(el) => el && (inputRefs.current[index] = el)}
-                className="size-12 font-iranBold text-2xl text-center border border-gray-300 rounded focus:border-primary focus:outline-none"
               />
             ))}
           </Flex>
@@ -112,7 +111,7 @@ const VerificationCodeForm = () => {
           <ResendCodeButton />
 
           <div
-            className="font-iranMedium text-primary hover:text-opacity-100 cursor-pointer underline text-center"
+            className="font-iranMedium text-primary hover:text-opacity-100 cursor-pointer text-center underline"
             onClick={handleOpenModal}
           >
             تغییر شماره
