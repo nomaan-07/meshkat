@@ -6,15 +6,14 @@ import Sort from "./Sort";
 
 function TableOperations() {
   return (
-    <div className="pb-4">
+    <div className="relative pb-4">
       <div className="flex flex-wrap justify-between gap-2 pb-2">
         <div className="flex gap-2">
           <Search />
           <AddUser />
         </div>
-        <div className="flex gap-2">
+        <div className="flex-end flex grow justify-end gap-2">
           <Filter />
-
           <Sort />
         </div>
       </div>

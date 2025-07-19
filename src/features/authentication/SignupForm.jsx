@@ -111,7 +111,7 @@ function SignupForm() {
           name="terms"
           validation={checkboxValidation()}
           error={errors?.terms}
-          className="ml-2 h-4 w-4 cursor-pointer rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+          className="ml-2 md:cursor-pointer"
         />
 
         <Label htmlFor="terms" className="text-sm">

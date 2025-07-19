@@ -1,17 +1,23 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Header from "../navigation/Header";
 import MobileNav from "../navigation/MobileNav";
 import Sidebar from "../navigation/Sidebar";
 
 function AppLayout() {
   return (
-    <div className="my-30 lg:mr-70">
-      <Header />
-      <Sidebar />
+    <div className="mx-auto max-w-[1440px] p-8">
+      <div className="lg:grid lg:grid-cols-[17.5rem_1fr] lg:gap-8">
+        <section>
+          <Sidebar />
+        </section>
+        <section className="space-y-8 overflow-x-auto">
+          <Header />
+          <main className="space-y-6 md:space-y-8">
+            <Outlet />
+          </main>
+        </section>
+      </div>
       <MobileNav />
-      <main className="mx-auto max-w-306 space-y-6 px-4 md:space-y-8 lg:pr-8">
-        <Outlet />
-      </main>
     </div>
   );
 }

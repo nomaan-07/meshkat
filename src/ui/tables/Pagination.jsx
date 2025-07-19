@@ -3,7 +3,7 @@ import Button from "../buttons/Button";
 
 function Pagination() {
   return (
-    <div className="flex flex-col justify-between gap-6 text-sm sm:flex-row sm:items-center">
+    <div className="flex flex-col justify-between gap-6 text-sm select-none sm:flex-row sm:items-center">
       <div className="text-center">
         نمایش <span className="font-medium">1</span> تا{" "}
         <span className="font-medium">10</span> از{" "}

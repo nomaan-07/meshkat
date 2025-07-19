@@ -1,6 +1,7 @@
 const variations = {
   primary: "w-14",
   auth: "w-18 md:w-24",
+  header: "w-12 md:w-14",
 };
 
 function Logo({ variation = "primary", className = "" }) {

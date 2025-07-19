@@ -5,7 +5,7 @@ import MainNav from "./MainNav";
 
 function Sidebar() {
   return (
-    <aside className="fixed top-4 right-4 bottom-4 hidden w-70 flex-col justify-between gap-y-8 overflow-y-auto rounded-md bg-white p-8 lg:flex">
+    <aside className="sticky top-8 right-0 hidden w-70 shrink-0 flex-col justify-between gap-y-8 overflow-y-auto rounded-md bg-white p-8 lg:flex">
       <div className="flex items-center justify-between border-b border-b-slate-200 pb-8">
         <UserProfile />
         <Logo />

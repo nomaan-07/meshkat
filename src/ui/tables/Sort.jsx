@@ -1,31 +1,22 @@
 import { ArrowUpDown } from "lucide-react";
 import { useState } from "react";
 import TableOperationButton from "../buttons/TableOperationButton";
-import Overlay from "../common/Overlay";
 import FilterModal from "./FilterModal";
 
 function Sort() {
   const [isOpen, setIsOpen] = useState(false);
 
-  function handleOpen() {
-    setIsOpen(true);
-  }
-  function handleClose() {
-    setIsOpen(false);
+  function toggleIsOpen() {
+    setIsOpen((prev) => !prev);
   }
 
   return (
     <TableOperationButton
       icon={ArrowUpDown}
-      onClick={handleOpen}
+      onClick={toggleIsOpen}
       text="دسته بندی"
     >
-      {isOpen && (
-        <>
-          <FilterModal />
-          <Overlay isOpen={isOpen} onClose={handleClose} />
-        </>
-      )}
+      {isOpen && <FilterModal />}
     </TableOperationButton>
   );
 }
