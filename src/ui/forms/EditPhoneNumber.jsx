@@ -1,14 +1,14 @@
 import { useForm } from "react-hook-form";
+import { FiCheck } from "react-icons/fi";
+import { useEditPhone } from "../../features/authentication/useEditPhone";
+import { removeCookie, setCookie } from "../../utils/cookies";
+import { convertToInternationalPhone } from "../../utils/helpers";
 import { phoneNumberValidation } from "../../utils/validations";
+import Button from "../buttons/Button";
 import Modal from "../common/Modal";
 import Heading from "../layout/Heading";
 import Form from "./Form";
 import Input from "./Input";
-import Button from "../buttons/Button";
-import { FiCheck } from "react-icons/fi";
-import { useEditPhone } from "../../features/authentication/useEditPhone";
-import { convertToInternationalPhone } from "../../utils/helpers";
-import { removeCookie, setCookie } from "../../utils/cookies";
 
 function EditPhoneNumber({ isOpen, onClose, closeButton }) {
   const { editPhone, isPending } = useEditPhone();
@@ -34,7 +34,7 @@ function EditPhoneNumber({ isOpen, onClose, closeButton }) {
         variation="regular"
         className="p-4"
       >
-        <Heading as="h2" className="mb-4">
+        <Heading as="h4" className="mb-4 text-center">
           تغییر شماره موبایل
         </Heading>
 

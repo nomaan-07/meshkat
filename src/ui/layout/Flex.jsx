@@ -4,7 +4,6 @@ function Flex({
   align = "center",
   direction = "row",
   className = "",
-  dir = "rtl",
   wrap = "nowrap",
   gap,
   ...props
@@ -41,16 +40,7 @@ function Flex({
 
   return (
     <div
-      dir={dir}
-      className={`
-        flex
-        ${justifyClasses[justify] || justifyClasses.center}
-        ${alignClasses[align] || alignClasses.center}
-        ${directionClasses[direction] || directionClasses.row}
-        ${wrapClasses[wrap] || wrapClasses.nowrap}
-        ${(gap && `gap-${gap}`) || "gap-0"}
-        ${className}
-      `}
+      className={`flex ${justifyClasses[justify] || justifyClasses.center} ${alignClasses[align] || alignClasses.center} ${directionClasses[direction] || directionClasses.row} ${wrapClasses[wrap] || wrapClasses.nowrap} ${(gap && `gap-${gap}`) || "gap-0"} ${className} `}
       {...props}
     >
       {children}

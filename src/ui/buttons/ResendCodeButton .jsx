@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FiRotateCw } from "react-icons/fi";
-import Button from "./Button";
 import { useResendOtp } from "../../features/authentication/useResendOtp";
+import Button from "./Button";
 
 const ResendCodeButton = () => {
   const { resendOtp } = useResendOtp();

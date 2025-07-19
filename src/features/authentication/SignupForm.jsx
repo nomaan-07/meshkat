@@ -1,5 +1,14 @@
+import { LucideUserPlus } from "lucide-react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import Button from "../../ui/buttons/Button";
 import Form from "../../ui/forms/Form";
+import Input from "../../ui/forms/Input";
+import InputContainer from "../../ui/forms/InputContainer";
+import Label from "../../ui/forms/Label";
+import Flex from "../../ui/layout/Flex";
+import { setCookie } from "../../utils/cookies";
+import { convertToInternationalPhone } from "../../utils/helpers";
 import {
   checkboxValidation,
   emailValidation,
@@ -8,16 +17,7 @@ import {
   phoneNumberValidation,
   requiredValidation,
 } from "../../utils/validations";
-import Input from "../../ui/forms/Input";
-import InputContainer from "../../ui/forms/InputContainer";
-import Button from "../../ui/buttons/Button";
-import { FaUserPlus } from "react-icons/fa";
-import Label from "../../ui/forms/Label";
-import Flex from "../../ui/layout/Flex";
-import { useForm } from "react-hook-form";
 import { useSignup } from "./useSignup";
-import { convertToInternationalPhone } from "../../utils/helpers";
-import { setCookie } from "../../utils/cookies";
 
 function SignupForm() {
   const { signup, isPending } = useSignup();
@@ -44,7 +44,7 @@ function SignupForm() {
   }
 
   return (
-    <Form variation="regular" onSubmit={handleSubmit(onSubmit)}>
+    <Form variation="auth" onSubmit={handleSubmit(onSubmit)}>
       <InputContainer>
         <Input
           type="text"
@@ -100,7 +100,7 @@ function SignupForm() {
         error={errors?.password}
       />
 
-      <Button type="submit" disabled={isPending} icon={FaUserPlus}>
+      <Button type="submit" disabled={isPending} icon={LucideUserPlus}>
         {isPending ? "در حال ثبت نام..." : "ثبت نام"}
       </Button>
 
@@ -111,13 +111,12 @@ function SignupForm() {
           name="terms"
           validation={checkboxValidation()}
           error={errors?.terms}
-          className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded ml-2 cursor-pointer"
+          className="ml-2 md:cursor-pointer"
         />
 
         <Label htmlFor="terms" className="text-sm">
-          با
-          <Link className="text-purple-500 underline"> قوانین و مقررات </Link>
-          سایت موافقم
+          با <Link className="text-primary underline">قوانین و مقررات</Link>{" "}
+          سایت موافقم.
         </Label>
       </Flex>
     </Form>

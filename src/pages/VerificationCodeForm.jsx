@@ -1,20 +1,19 @@
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import Form from "../ui/forms/Form";
-import FormWrapper from "../ui/forms/FormWrapper";
-import Flex from "../ui/layout/Flex";
-import Heading from "../ui/layout/Heading";
-import Paragraph from "../ui/common/Paragraph";
-import Button from "../ui/buttons/Button";
-import { FiCheck } from "react-icons/fi";
-import Input from "../ui/forms/Input";
-import ResendCodeButton from "../ui/buttons/ResendCodeButton ";
-import { useVerifyNumber } from "../features/authentication/useVerifyNumber";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { getCookie } from "../utils/cookies";
-import Link from "../ui/common/Link";
+import { FiCheck } from "react-icons/fi";
+import { useVerifyNumber } from "../features/authentication/useVerifyNumber";
+import Button from "../ui/buttons/Button";
+import ResendCodeButton from "../ui/buttons/ResendCodeButton ";
+import Paragraph from "../ui/common/Paragraph";
 import EditPhoneNumber from "../ui/forms/EditPhoneNumber";
+import Form from "../ui/forms/Form";
+import FormWrapper from "../ui/forms/FormWrapper";
+import Input from "../ui/forms/Input";
+import Flex from "../ui/layout/Flex";
+import Heading from "../ui/layout/Heading";
+import { getCookie } from "../utils/cookies";
 
 const VerificationCodeForm = () => {
   const { verifyNumber, isPending } = useVerifyNumber();
@@ -77,10 +76,7 @@ const VerificationCodeForm = () => {
     >
       <FormWrapper>
         <Form onSubmit={handleSubmit(onSubmit)} variation="regular">
-          <Heading
-            className="mt-6 text-center font-iranLight text-gray-900"
-            as="h3"
-          >
+          <Heading className="mt-6 text-center" as="h3">
             تایید شماره موبایل
           </Heading>
 
@@ -93,18 +89,17 @@ const VerificationCodeForm = () => {
             {`کد ۶ رقمی ارسال شده به شماره ${userPhoneNumber}+ را وارد کنید.`}
           </Paragraph>
 
-          <Flex dir="ltr" gap={2} className="mb-6 ">
+          <Flex dir="ltr" gap={2} className="mb-6">
             {code.map((digit, index) => (
               <Input
                 key={index}
-                type="text"
+                type="code"
                 inputMode="numeric"
                 maxLength={1}
                 value={digit}
                 onChange={(e) => handleChange(e, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 ref={(el) => el && (inputRefs.current[index] = el)}
-                className="size-12 font-iranBold text-2xl text-center border border-gray-300 rounded focus:border-primary focus:outline-none"
               />
             ))}
           </Flex>
@@ -115,7 +110,12 @@ const VerificationCodeForm = () => {
 
           <ResendCodeButton />
 
-          <Link onClick={handleOpenModal}>تغییر شماره</Link>
+          <div
+            className="font-iranMedium text-primary hover:text-opacity-100 cursor-pointer text-center underline"
+            onClick={handleOpenModal}
+          >
+            تغییر شماره
+          </div>
         </Form>
         <EditPhoneNumber isOpen={isModalOpen} onClose={handleCloseModal} />
       </FormWrapper>

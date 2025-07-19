@@ -29,12 +29,14 @@ export async function verifyNumber(otp) {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     return response.data;
   } catch (error) {
     throw new Error(
-      error.response?.data?.message || error?.message || "خطا در ارتباط با سرور"
+      error.response?.data?.message ||
+        error?.message ||
+        "خطا در ارتباط با سرور",
     );
   }
 }
@@ -51,7 +53,9 @@ export async function resendOtp() {
     return response.data;
   } catch (error) {
     throw new Error(
-      error.response?.data?.message || error?.message || "خطا در ارتباط با سرور"
+      error.response?.data?.message ||
+        error?.message ||
+        "خطا در ارتباط با سرور",
     );
   }
 }
@@ -62,7 +66,9 @@ export async function login(userData) {
     return response.data;
   } catch (error) {
     throw new Error(
-      error.response?.data?.message || error?.message || "خطا در ارتباط با سرور"
+      error.response?.data?.message ||
+        error?.message ||
+        "خطا در ارتباط با سرور",
     );
   }
 }
@@ -73,12 +79,14 @@ export async function githubLogin() {
     return response.data;
   } catch (error) {
     throw new Error(
-      error.response?.data?.message || error?.message || "خطا در ارتباط با سرور"
+      error.response?.data?.message ||
+        error?.message ||
+        "خطا در ارتباط با سرور",
     );
   }
 }
 
-export async function editphone(userData) {
+export async function editPhone(userData) {
   try {
     const token = getCookie("register_token");
     const response = await axios.post(`${baseURL}/auth/edit_phone`, userData, {
@@ -90,7 +98,9 @@ export async function editphone(userData) {
     return response.data;
   } catch (error) {
     throw new Error(
-      error.response?.data?.message || error?.message || "خطا در ارتباط با سرور"
+      error.response?.data?.message ||
+        error?.message ||
+        "خطا در ارتباط با سرور",
     );
   }
 }

@@ -1,6 +1,6 @@
 function FormWrapper({ children }) {
   return (
-    <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 mt-8 sm:mx-auto w-full sm:max-w-md">
+    <div className="xs:w-md mt-8 w-full rounded-lg bg-white px-2 py-8 sm:w-lg sm:px-4 lg:px-8">
       {children}
     </div>
   );

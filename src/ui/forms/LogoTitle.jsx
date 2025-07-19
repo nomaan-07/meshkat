@@ -6,12 +6,9 @@ function LogoTitle({ children }) {
   return (
     <div className="sm:mx-auto sm:w-full sm:max-w-md">
       <Flex>
-        <Logo />
+        <Logo variation="auth" />
       </Flex>
-      <Heading
-        as="h3"
-        className="mt-6 text-center font-iranLight text-gray-900"
-      >
+      <Heading as="h3" className="mt-6 text-center text-gray-900">
         {children}
       </Heading>
     </div>

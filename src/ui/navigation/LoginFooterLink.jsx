@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom";
 
 function LoginFooterLink({ to, children }) {
   return (
-    <div className="text-center mt-4 text-xs sm:text-sm">
+    <div className="mt-6 text-center text-xs sm:text-sm">
       <p className="text-slate-700">
-        {children}
+        {children}{" "}
         <NavLink
           to={to}
-          className="font-medium text-red-500 hover:text-opacity-100 cursor-pointer"
+          className="text-primary hover:text-opacity-100 cursor-pointer font-medium underline"
         >
           {to === "/login" && "ورود به حساب کاربری"}
           {to === "/signup" && "ثبت نام در سامانه"}

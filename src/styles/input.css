@@ -1,47 +1,74 @@
 @import "tailwindcss";
 
-
 /* <Fonts/> */
 
 @font-face {
-    font-family: "Iran Bold";
-    src: url("../assets/fonts/iran-sans/IRANSansXFaNum-BoldD4.woff2") format("woff2");
-    font-display: swap;
+  font-family: "Iran Bold";
+  src: url("../assets/fonts/iran-sans/IRANSansXFaNum-BoldD4.woff2")
+    format("woff2");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Iran DemiBold";
-    src: url("../assets/fonts/iran-sans/IRANSansXFaNum-DemiBoldD4.woff2") format("woff2");
-    font-display: swap;
+  font-family: "Iran DemiBold";
+  src: url("../assets/fonts/iran-sans/IRANSansXFaNum-DemiBoldD4.woff2")
+    format("woff2");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Iran Light";
-    src: url("../assets/fonts/iran-sans/IRANSansXFaNum-LightD4.woff2") format("woff2");
-    font-display: swap;
+  font-family: "Iran Light";
+  src: url("../assets/fonts/iran-sans/IRANSansXFaNum-LightD4.woff2")
+    format("woff2");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Iran Medium";
-    src: url("../assets/fonts/iran-sans/IRANSansXFaNum-MediumD4.woff2") format("woff2");
-    font-display: swap;
+  font-family: "Iran Medium";
+  src: url("../assets/fonts/iran-sans/IRANSansXFaNum-MediumD4.woff2")
+    format("woff2");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Iran Regular";
-    src: url("../assets/fonts/iran-sans/IRANSansXFaNum-RegularD4.woff2") format("woff2");
-    font-display: swap;
+  font-family: "Iran Regular";
+  src: url("../assets/fonts/iran-sans/IRANSansXFaNum-RegularD4.woff2")
+    format("woff2");
+  font-display: swap;
 }
 
 @theme {
-    /* Fonts */
-    --font-iranBold: "Iran Bold";
-    --font-iranDemiBold: "Iran DemiBold";
-    --font-iranLight: "Iran Light";
-    --font-iranMedium: "Iran Medium";
-    --font-iranRegular: "Iran Regular";
-    /* Css Variables */
-    --color-primary: #2a81a5;
-    --color-secondary: #3da5c1;
-    --color-accent: #a55a2a;
+  --font-iranBold: "Iran Bold";
+  --font-iranDemiBold: "Iran DemiBold";
+  --font-iranLight: "Iran Light";
+  --font-iranMedium: "Iran Medium";
+  --font-iranRegular: "Iran Regular";
+
+  --color-primary: #2a81a5;
+  --color-secondary: #3da5c1;
+  --color-accent: #a55a2a;
+
+  --breakpoint-xs: 30rem;
+}
+
+@layer base {
+  body {
+    @apply font-iranRegular bg-slate-100 text-slate-900;
+  }
+}
+
+@utility nav-link {
+  &.active {
+    @apply from-primary cursor-default bg-linear-to-r to-slate-700 text-white md:hover:text-white;
+  }
+}
+
+@utility mobile-nav-link {
+  &.active {
+    @apply text-primary;
+
+    & .line {
+      @apply block;
+    }
+  }
 }

@@ -1,8 +1,9 @@
 const baseClasses = {
-  text: "appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150",
-  checkbox:
-    "h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded",
-  code: "w-12 h-12 text-2xl text-center border border-gray-300 rounded focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200",
+  text: "appearance-none block w-full px-3 py-2.5 border shadow-xs placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary xs:text-sm transition duration-150 rounded-md",
+  checkbox: "size-4 text-secondary focus:ring-primary border-slate-200",
+  code: "size-12 font-iranBold text-2xl text-center border border-slate-200 rounded focus:border-primary focus:outline-none",
+  search:
+    "appearance-none w-full px-3 py-2.5 border border-slate-200 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary xs:text-sm transition duration-150 rounded-md bg-white",
 };
 
 const Input = ({
@@ -27,6 +28,7 @@ const Input = ({
   const getInputClass = () => {
     if (type === "checkbox") return baseClasses.checkbox;
     if (type === "code") return baseClasses.code;
+    if (type === "search") return baseClasses.search;
     return baseClasses.text;
   };
 
@@ -46,7 +48,7 @@ const Input = ({
       {label && type !== "checkbox" && (
         <label
           htmlFor={id}
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="mb-1 block text-sm font-medium text-gray-700"
         >
           {label}
         </label>
@@ -79,7 +81,7 @@ const Input = ({
       {/* Error Message */}
       {error && (
         <p
-          className={`mt-1 text-xs text-red-600 absolute ${
+          className={`absolute mt-1 text-xs text-red-600 ${
             name === "terms" && "top-[15px] w-max"
           }`}
         >

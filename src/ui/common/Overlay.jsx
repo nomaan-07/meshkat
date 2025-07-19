@@ -1,10 +1,8 @@
-function Overlay({ isOpen = false, onClose, children = null }) {
+function Overlay({ onClose, children = null }) {
   return (
     <div
       onClick={onClose}
-      className={`fixed inset-0 z-100 bg-slate-500/10 backdrop-blur-xs transition-opacity ${
-        isOpen ? "modal--open" : `modal--close`
-      }`}
+      className="fixed inset-0 z-90 bg-slate-200/10 backdrop-blur-xs"
     >
       {children}
     </div>
